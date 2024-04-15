@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de CORS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #response {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prueba de CORS</h1>
+    <form id="requestForm">
+        <label for="movieName">Nombre de la película:</label>
+        <input type="text" id="movieName" name="movieName" required>
+        <button type="submit">Buscar</button>
+    </form>
+    <div id="response"></div>
+
+    <script>
+        document.getElementById('requestForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var movieName = document.getElementById('movieName').value;
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://localhost:8080/api/movies/' + movieName);
+            xhr.withCredentials = true; // Permitir enviar credenciales
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        document.getElementById('response').innerText = xhr.responseText;
+                    } else {
+                        document.getElementById('response').innerText = 'Error: ' + xhr.statusText;
+                    }
+                }
+            };
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
+
