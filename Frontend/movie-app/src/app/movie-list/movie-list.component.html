@@ -1,0 +1,21 @@
+<!-- movie-list.component.html -->
+
+<div class="container">
+  <h2 class="heading">Lista de Películas</h2>
+  <input type="text" [(ngModel)]="query" placeholder="Buscar películas..." (input)="searchMovies()" class="search-input">
+
+  <div *ngIf="movies.length > 0" class="movie-list">
+    <div *ngFor="let movie of movies" class="movie-card">
+      <div class="movie-thumbnail" [style.backgroundImage]="'url(https://image.tmdb.org/t/p/w300' + movie.poster_path + ')'"></div>
+      <a class="movie-title" [routerLink]="['/movie', movie.id]">{{ movie.title }}</a>
+      <div class="movie-info">
+        <div>Año: {{ movie.release_date | date: 'yyyy' }}</div>
+        <div>Calificación: {{ movie.vote_average }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="movies.length === 0 && query !== ''" class="no-results">
+    <p>No se encontraron resultados para "{{ query }}"</p>
+  </div>
+</div>

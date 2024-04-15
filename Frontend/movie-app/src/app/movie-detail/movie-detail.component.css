@@ -1,0 +1,53 @@
+/* movie-detail.component.css */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.heading {
+  font-family: 'Arial', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.movie-details {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-poster-container {
+  flex: 0 0 auto;
+  margin-bottom: 20px;
+}
+
+.movie-poster {
+  width: 300px;
+  height: 450px;
+  margin-right: 20px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.movie-info {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.movie-info div {
+  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+.movie-info strong {
+  font-weight: bold;
+}
+
+.movie-info p {
+  margin-top: 0;
+}

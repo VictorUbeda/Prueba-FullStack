@@ -1,0 +1,21 @@
+<!-- movie-detail.component.html -->
+
+<div class="container">
+  <h2 class="heading">{{ movie?.title }}</h2>
+  
+  <div class="movie-details">
+    <div class="movie-poster-container">
+      <div class="movie-poster" [style.backgroundImage]="'url(https://image.tmdb.org/t/p/w300' + movie?.poster_path + ')'"></div>
+    </div>
+    <div class="movie-info">
+    <div><strong>Título Original:</strong> {{ movie?.original_title }}</div>
+    <div><strong>Fecha de Estreno:</strong> {{ movie?.release_date | date: 'mediumDate' }}</div>
+    <div><strong>Idioma Original:</strong> {{ movie?.original_language }}</div>
+    <div><strong>Géneros:</strong> {{ getGenres() }}</div>
+    <div><strong>Calificación:</strong> {{ movie?.vote_average }}</div>
+    <div><strong>Popularidad:</strong> {{ movie?.popularity }}</div>
+    <div><strong>Duración:</strong> {{ movie?.runtime }} minutos</div>
+    <div><strong>Descripción (en inglés):</strong> {{ movie?.overview }}</div>
+    </div>
+  </div>
+</div>
